@@ -1,6 +1,7 @@
 # Configurar provider GCP
 provider "google" {
  project     = var.project_id
+ credentials = "${jenkins_terraform}"
 }
 
 # Configurar K8S
