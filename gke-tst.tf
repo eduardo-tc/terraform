@@ -1,3 +1,7 @@
+# Configurar provider GCP
+provider "google" {
+ project     = var.project_id
+}
 module "gke" {
   source  = "app.terraform.io/TradersClub/gke/google"
   version = "0.0.1"
