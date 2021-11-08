@@ -21,7 +21,7 @@ resource "google_compute_subnetwork" "subnetwork1" {
   name          = "k8s-subnet"
   ip_cidr_range = "10.4.0.0/16"
   project       = var.project_id
-  region        = var.region1
+  region        = var.region
   network       = google_compute_network.vpc_network1.id
 
   depends_on = [
@@ -34,7 +34,7 @@ resource "google_container_cluster" "gke_cluster1" {
   name     = "cicd-jenkins"
   description = "cicd - Jenkins"
   project = var.project_id
-  location = var.region1
+  location = var.region
   network = google_compute_network.vpc_network1.name
   subnetwork = google_compute_subnetwork.subnetwork1.name
   remove_default_node_pool = true
@@ -51,7 +51,7 @@ resource "google_container_cluster" "gke_cluster1" {
 resource "google_container_node_pool" "nodepool1" {
   name       = "node-pool"
   project    = var.project_id
-  location   = var.region1
+  location   = var.region
   cluster    = google_container_cluster.gke_cluster1.name
   node_count = 1
 

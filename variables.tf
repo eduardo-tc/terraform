@@ -3,14 +3,8 @@ variable "project_id" {
   default = "tc-terraform-test"
   }
 
-variable "region1" {
+variable "region" {
   type = string
-  description = "Region1"
+  description = "Region"
   default = "us-central1"
-}
-
-variable "region2" {
-  type = string
-  description = "Region2"
-  default = "asia-south1"
 }
